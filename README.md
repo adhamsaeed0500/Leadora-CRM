@@ -104,6 +104,32 @@ Lead → Conversation → Deal → Unit → Booking → Payment
   - AWS S3 (file storage)
 - **Deployment**: Docker
 
+### Backend Project Structure
+
+```text
+src/
+├── common/                    # Shared infrastructure (cross-cutting concerns)
+│   ├── database/
+│   │   ├── prisma.service.ts
+│   │   └── database.module.ts
+│   ├── guards/                # Auth guards, role guards
+│   ├── decorators/            # Custom decorators
+│   ├── filters/               # Exception filters
+│   ├── interceptors/          # Logging, transform interceptors
+│   └── pipes/                 # Validation pipes
+│
+├── modules/                   # Business features (domain logic)
+│   ├── leads/
+│   ├── deals/
+│   ├── units/
+│   ├── bookings/
+│   ├── payments/
+│   └── users/
+│
+├── app.module.ts
+└── main.ts
+```
+
 ---
 
 ## 🔐 7. Business Rules
